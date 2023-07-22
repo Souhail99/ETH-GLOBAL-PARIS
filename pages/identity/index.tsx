@@ -10,6 +10,7 @@ import {
   SismoConnectResponse,
   ClaimType,
 } from "@sismo-core/sismo-connect-react";
+import Link from "next/link";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -90,11 +91,7 @@ export default function Home() {
         </div>
 
         <div className={styles.grid}>
-          <a
-            href="/identity"
-            className={styles.card}
-            rel="noopener noreferrer"
-          >
+          <Link href="/identity" title="Identity" className={styles.card} >
             <h2 className={inter.className}>
             
               Identity <span>-&gt;</span>
@@ -102,17 +99,17 @@ export default function Home() {
             <p className={inter.className}>
               Test our Solution !
             </p>
-          </a>
+          </Link>
 
-          <a>
+          <Link>
           
-          </a>
+          </Link>
 
-          <a>
+          <Link>
            
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/doc"
             className={styles.card}
             target="_blank"
@@ -124,7 +121,7 @@ export default function Home() {
             <p className={inter.className}>
               Find in-depth information about our Project.
             </p>
-          </a>
+          </Link>
         </div>
       </main>
     </>
