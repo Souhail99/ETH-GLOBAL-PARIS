@@ -1247,6 +1247,11 @@
     "@ethersproject/bignumber" "^5.7.0"
     "@sismo-core/hydra-s3" "^1.0.0"
 
+"@sismo-core/sismo-connect-solidity@^0.0.20":
+  "integrity" "sha512-dSOXboUSR3FSuMIi1cVUwDA4Xn7TVyF0kKCHw1l/fSM1yksoRg2r23i827GRHVO5TL0ZSPPN24JhUsLo/+Y8Jg=="
+  "resolved" "https://registry.npmjs.org/@sismo-core/sismo-connect-solidity/-/sismo-connect-solidity-0.0.20.tgz"
+  "version" "0.0.20"
+
 "@solidity-parser/parser@^0.14.0":
   "integrity" "sha512-6dKnHZn7fg/iQATVEzqyUOyEidbn05q7YA2mQ9hC0MMXhhV3/JrsxmFSYZAcr7j1yUP700LLhTruvJ3MiQmjJg=="
   "resolved" "https://registry.npmjs.org/@solidity-parser/parser/-/parser-0.14.5.tgz"
@@ -2696,6 +2701,11 @@
   dependencies:
     "@babel/runtime" "^7.8.7"
     "csstype" "^3.0.2"
+
+"dotenv@^16.3.1":
+  "integrity" "sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ=="
+  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-16.3.1.tgz"
+  "version" "16.3.1"
 
 "ecc-jsbn@~0.1.1":
   "integrity" "sha512-eh9O+hwRHNbG4BLTjEl3nw044CkGm5X6LoaCf7LPp7UU8Qrt47JYNi6nPX8xjW97TKGKm1ouctg0QSpZe9qrnw=="

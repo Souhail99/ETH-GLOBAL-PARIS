@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
@@ -61,7 +61,7 @@ contract Voting is Ownable {
         string memory _description,
         uint256 _delay,
         uint256 _duree,
-        string[] _choices
+        string[] memory _choices
     ) public onlyOwner {
         // Start the voting time (100 seconds) with the delay
         votingStartime = block.timestamp + _delay;
@@ -75,7 +75,7 @@ contract Voting is Ownable {
             name: _name,
             description: _description,
             choices: _choices,
-            votes: new uint256[](choices.length),
+            votes: new uint256[](_choices.length),
             begin: votingStartime,
             end: votingEndtime,
             state: ProposalState.Active
@@ -92,7 +92,10 @@ contract Voting is Ownable {
     }
 
     // Function to handle the vote
-    function vote(uint256 _IDProposal, string choices) public onlyVerifier {
+    function vote(
+        uint256 _IDProposal,
+        string memory choices
+    ) public onlyVerifier {
         require(
             block.timestamp >= proposals[_IDProposal].begin,
             "Voting has not started yet."
@@ -106,13 +109,27 @@ contract Voting is Ownable {
             "Proposal is not in status Active"
         );
 
-        uint256 indexChoice = -1;
+        bool found = false;
+        uint256 indexChoice = 0;
+        bytes32 choiceHash = keccak256(bytes(choices)); // Compute the hash of the input string
+
         for (uint256 i = 0; i < proposals[_IDProposal].choices.length; i++) {
-            if (proposals[_IDProposal].choices[i] == choices) {
+            if (
+                keccak256(bytes(proposals[_IDProposal].choices[i])) ==
+                choiceHash
+            ) {
+                // Compare hashes
+                found = true;
                 indexChoice = i;
+                break;
             }
         }
-        uint256 currentVote = proposals[_IDProposal].votes[indexChoice] + 1;
+
+        if (!found) {
+            revert("This choice does not exist.");
+        }
+
+        proposals[_IDProposal].votes[indexChoice] += 1;
     }
 
     // Function to execute the Proposal
