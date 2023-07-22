@@ -1,14 +1,15 @@
 import { Box, Typography } from "@mui/material";
-import { Image } from "@mui/icons-material";
+import Image from 'next/image'
+
 
 type TitleWrapperProps = {
   title: string;
   description: string;
-  img?: string;
+  imageSrc: string;
 }
 
 
-export const TitleWrapper = ({title, description, img = ""}: TitleWrapperProps) => {
+export const TitleWrapper = ({title, description, imageSrc}: TitleWrapperProps) => {
   return (
     <Box
       bgcolor="white"
@@ -18,7 +19,7 @@ export const TitleWrapper = ({title, description, img = ""}: TitleWrapperProps) 
     >
       <Box
         display="flex"
-        justifyContent="space-around"
+        justifyContent="space-between"
         alignItems="center"
       >
         <Typography
@@ -32,10 +33,12 @@ export const TitleWrapper = ({title, description, img = ""}: TitleWrapperProps) 
         >
           {title}
         </Typography>
-        {
-          img !== "" &&
-            <Image src={img} alt="logo"/>
-        }
+        <Image
+          src={imageSrc}
+          alt="Icon-1"
+          height={28}
+        />
+
       </Box>
 
       <Typography
@@ -45,7 +48,7 @@ export const TitleWrapper = ({title, description, img = ""}: TitleWrapperProps) 
           fontWeight: 400,
           lineHeight: "22px",
           color: "black",
-          mt:"20px"
+          mt: "20px"
         }}
       >
         {description}

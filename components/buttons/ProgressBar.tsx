@@ -1,13 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 
-type ProgressBarProps = {
+export type ProgressBarProps = {
   label: string;
   percent: number;
   params?: string;
 }
 
-export const ProgressBar = ({title, description, img = ""}: ProgressBarProps) => {
+export const ProgressBar = ({label, percent}: ProgressBarProps) => {
 
   return (
     <Box sx={{
@@ -23,7 +23,7 @@ export const ProgressBar = ({title, description, img = ""}: ProgressBarProps) =>
     >
       <Box sx={{
         height: "100%",
-        width: "22%",
+        width: `${percent}%`,
         bgcolor: "#EEEEFB",
         position: "absolute",
         zIndex: 2
@@ -49,7 +49,7 @@ export const ProgressBar = ({title, description, img = ""}: ProgressBarProps) =>
               color:"black"
             }}
           >
-            Emma Henderson
+            {label}
           </Typography>
           <Typography
             sx={{
@@ -60,7 +60,7 @@ export const ProgressBar = ({title, description, img = ""}: ProgressBarProps) =>
               color: "#A8A8A8"
             }}
           >
-            42% of vote so far
+            {percent.toString()}% of vote so far
           </Typography>
         </Box>
         <Button
