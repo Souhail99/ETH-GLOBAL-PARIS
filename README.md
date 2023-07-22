@@ -39,5 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Info concerning sismo
 
 To interact sismo:
+
 appId : 0xedae8cc49b4f32e436691771aadd5393
+groupId : 0x9b72562239c38dbc6fe8a0ff443019bf
 
