@@ -3,37 +3,15 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import { SismoConnectComponent } from "../components/buttons/SismoConnectButton";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({subsets: ['latin']})
 
-export default function Home() {
+export default function Home(){
   return (
     <>
       <main className={styles.main}>
-        <div className={styles.description}>
-         
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
+        <SismoConnectComponent/>
         <div className={styles.grid}>
           <Link
             href="/identity"
@@ -41,7 +19,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <h2 className={inter.className}>
-            
+
               Identity <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
@@ -49,7 +27,6 @@ export default function Home() {
             </p>
           </Link>
 
-         
 
           <Link
             href="/doc"
