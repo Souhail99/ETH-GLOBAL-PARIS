@@ -14,7 +14,7 @@ contract Voting is Ownable {
     address public creator; // For security
     uint256 public minimum;
     uint public numero;
-    uint256 public amountobeburn;
+ 
     uint256 public votingStartime;
     uint256 public votingEndtime;
 
@@ -61,18 +61,12 @@ contract Voting is Ownable {
     // Mappings
     mapping (uint => Proposition) public propositions;
     mapping (uint256 => Voter[]) public Votants;
-    mapping (address => Voter) public LastVote;
-    mapping (address => Voter[]) public LastVoteList;
-    mapping (uint256 => mapping(address => Voter)) public LastVoteListPaie;
-    mapping (uint256 => EnumerableSet.AddressSet) internal LastVoteSET;
-    mapping (address => EnumerableSet.AddressSet) internal cadeaux42;
-    mapping (address => uint256) public rewards;
-    mapping (uint256 => address[]) public listDesVotantsPaiement;
+
 
     // Event
     event PropositionCree(string intitule, string petitedescription, string description);
     event Votant(uint IDproposition, address voteur, uint256 poseesurlatable);
-    event Rewards(address voteur, uint IDproposition);
+  
 
     // Constructor
     constructor() {
@@ -173,26 +167,7 @@ contract Voting is Ownable {
     
 
     // Function to check for voting abuses
-    function checkTricheur(address _voter, uint256 _voteTotaux, uint256 _IDproposition) private returns (uint256) {
-        amountobeburn = 0;
-
-        for (uint i = 0; i < LastVoteList[_voter].length - 1; i++) {
-            bool beta = comparaison(LastVoteList[_voter][i].id, _IDproposition);
-            bool alpha = false;
-
-            if (!beta) {
-                if (i + 1 < LastVoteList[_voter].length) {
-                    alpha = comparaison(LastVoteList[_voter][i].id, LastVoteList[_voter][i + 1].id);
-                    if (alpha && propositions[LastVoteList[_voter][i].id].executee) {
-                        amountobeburn += LastVoteList[_voter][i].poids;
-                    }
-                }
-            }
-        }
-
-        return amountobeburn + _voteTotaux;
-    }
-
+  
     // Function to return the current ID
     function returnNombre() public view returns (uint) {
         return numero;
