@@ -49,9 +49,9 @@ export default function Home() {
             </p>
           </Link>
 
-        
+         
 
-          <a
+          <Link
             href="/doc"
             className={styles.card}
             target="_blank"
@@ -63,7 +63,7 @@ export default function Home() {
             <p className={inter.className}>
               Find in-depth information about our Project.
             </p>
-          </a>
+          </Link>
         </div>
       </main>
     </>
