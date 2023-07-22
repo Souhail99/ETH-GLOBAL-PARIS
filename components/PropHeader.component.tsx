@@ -17,7 +17,7 @@ const PropHeaderComponent: FC<Props> = ({
 return (
     <div style={{ width: '600px', margin: 'auto' }}> 
         <h1>{title}</h1>
-        <Image style={{ width: '600px' }} src={mainImageUrl} />
+        <Image style={{ width: '600px' }} src={mainImageUrl} alt={"main-img"} />
         <p className={styles.__className_44d3552}>Posted on {dateString}</p>
     </div>
   );
