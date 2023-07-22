@@ -13,16 +13,14 @@ import Typography from '@mui/material/Typography';
 import IconButton from "@mui/material/IconButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import LearnMenuComponent from "./MenuCat";
-
+import { ethers } from "ethers";
 interface Props {
     mode: PaletteMode;
     onChange?: () => void;
 }
 
 
-interface Window {
-    ethereum: any
-}
+declare var window: any
 
 const Web3=require("web3");
 
