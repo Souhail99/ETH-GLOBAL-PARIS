@@ -97,8 +97,7 @@ return (
             style={{
               backgroundColor: customTheme.palette.background.paper,
               color: customTheme.palette.text.primary,
-              backgroundImage:"linear-gradient(to top, #051937, #004d7a, #008793, #00bf72, #a8eb12)"
-              
+
             }}
         >
             <Toolbar>
