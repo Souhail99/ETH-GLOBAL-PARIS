@@ -101,13 +101,7 @@ export default function Home() {
             </p>
           </Link>
 
-          <Link>
           
-          </Link>
-
-          <Link>
-           
-          </Link>
 
           <Link
             href="/doc"
