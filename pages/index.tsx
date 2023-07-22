@@ -47,15 +47,7 @@ export default function Home() {
             <p className={inter.className}>
               Test our Solution !
             </p>
-          </Link>
-
-          <Link>
-          
-          </Link>
-
-          <Link>
-           
-          </Link>
+        
 
           <Link
             href="/doc"
