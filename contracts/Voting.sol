@@ -1,12 +1,11 @@
 // SPDX-License-Identifier: MIT
-pragma solidity <=0.8.19;
+pragma solidity ^0.8.10;
 
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 //import "@ethereum-attestation-service/eas-contracts/deployments";
-import { IEAS, Attestation } from "@ethereum-attestation-service/eas-contracts/contracts/IEAS.sol";
 contract Voting is Ownable {
     using EnumerableSet for EnumerableSet.AddressSet;
 
@@ -75,9 +74,9 @@ contract Voting is Ownable {
     }
 
     // Function to create a new proposal
-    function newProposition(Attestation calldata attestation, string memory _intitule, string memory _petitedescription, string memory _description, uint _delay, uint _duree) public {
+    function newProposition(string memory _intitule, string memory _petitedescription, string memory _description, uint _delay, uint _duree) public {
         // Prerequisites
-        require(attestation.attester == msg.sender, "You don't have the right to create a proposal.");
+        //require(attestation.attester == msg.sender, "You don't have the right to create a proposal.");
 
         // Start the voting time (100 seconds) with the delay
         votingStartime = block.timestamp + _delay;
@@ -111,9 +110,9 @@ contract Voting is Ownable {
     }
 
     // Function to handle the vote
-    function Levote(Attestation calldata attestation, uint _IDproposition, uint _amountvotesPour, uint _amountvotesContre, uint _amountvotesAbstain) public {
+    function Levote(uint _IDproposition, uint _amountvotesPour, uint _amountvotesContre, uint _amountvotesAbstain) public {
         
-        require(attestation.attester == msg.sender, "You don't have the right to vote on a proposal.");
+        //require(attestation.attester == msg.sender, "You don't have the right to vote on a proposal.");
 
         require(block.timestamp >= propositions[_IDproposition].begin, "Voting has not started yet.");
         require(block.timestamp < propositions[_IDproposition].end, "Voting has ended.");

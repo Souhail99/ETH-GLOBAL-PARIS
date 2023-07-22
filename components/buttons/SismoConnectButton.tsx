@@ -21,7 +21,7 @@ export const SismoConnectComponent = () => {
       signature={{ message: "0x00" }}
       onResponse={async (response: SismoConnectResponse) => {
         console.log(response);
-        const endpoint = "api/verifiyer";
+        const endpoint = "api/verifier";
         const data = {
           proof: response,
         };
