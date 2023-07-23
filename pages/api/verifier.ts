@@ -7,6 +7,7 @@ import {
   SismoConnectVerifiedResult,
   AuthType,
 } from "@sismo-core/sismo-connect-server";
+import { encodeAbiParameters } from "viem";
 
 export default async function handler(req: any, res: any) {
   if (req.method === "POST") {
@@ -28,7 +29,12 @@ export default async function handler(req: any, res: any) {
           // (e.g NFT ownership, Dao Participation, GitHub commits)
           claims: [{ groupId: "0x9b72562239c38dbc6fe8a0ff443019bf" }],
           // request message signature from users.
-          signature: { message: "0x00" },
+          signature: {
+            message: encodeAbiParameters(
+              [{ type: "string", name: "blabla" }],
+              ["0x00" as `0x${string}`]
+            ),
+          },
         }
       );
       return result;
@@ -37,6 +43,6 @@ export default async function handler(req: any, res: any) {
     const vaultId = result.getUserId(AuthType.VAULT);
     res.status(200).json({ all: result, vaultId: vaultId });
   } else {
-    res.status(200).json({ name: "edrfgthyj" });
+    res.status(200).json({ name: "I need POST request" });
   }
 }

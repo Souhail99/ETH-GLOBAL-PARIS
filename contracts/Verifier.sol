@@ -15,7 +15,7 @@ contract Verifier is SismoConnect {
                 appId: 0xedae8cc49b4f32e436691771aadd5393,
                 // For development purposes insert when using proofs that contains impersonation
                 // Never use this in production
-                isImpersonationMode: true
+                isImpersonationMode: false
             })
         )
     {}
@@ -34,7 +34,7 @@ contract Verifier is SismoConnect {
             responseBytes: response,
             auths: auths,
             claims: claims,
-            signature: buildSignature({message: "0x00"})
+            signature: buildSignature({message: abi.encode("0x00")})
         });
 
         emit ResponseVerified(result);
