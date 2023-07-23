@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { ProgressBar, ProgressBarProps } from "../buttons/ProgressBar";
 
-
 type VoteWrapperProps = {
   voteData: ProgressBarProps[];
   timeLeft: string;

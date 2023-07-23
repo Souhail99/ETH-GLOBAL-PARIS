@@ -44,7 +44,7 @@ export const DatesWrapper = () => {
               lineHeight: "22px"
             }}
           >
-            Status
+            Start
           </Typography>
           <Typography>Jul 22, 2023 8am PT</Typography>
         </Box>
@@ -58,7 +58,7 @@ export const DatesWrapper = () => {
               lineHeight: "22px"
             }}
           >
-            Status
+            End
           </Typography>
           <Typography>Jul 22, 2023 5pm PT</Typography>
         </Box>

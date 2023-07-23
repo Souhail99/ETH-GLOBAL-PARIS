@@ -15,13 +15,13 @@ export const SismoConnectComponent = () => {
   const [response, setResponse] = useState<SismoConnectResponse | null>(null);
   const [finished, setFinished] = useState<boolean>(false);
 
-  async function Vote(responseeeeee: any, responseeeeeeBytes: any) {
+  async function Vote(response: any, responseBytes: any) {
     setFinished(true);
-    console.log(responseeeeee);
+    console.log(response);
     const endpoint = "api/verifier";
     const data = {
-      proof: responseeeeee,
-      Bytes: responseeeeeeBytes,
+      proof: response,
+      Bytes: responseBytes,
     };
     // Send the data to the server in JSON format.
     const options = {
@@ -55,6 +55,9 @@ export const SismoConnectComponent = () => {
       // responseBytes = the response from Sismo Connect, will be sent onchain
       onResponseBytes={(responseBytes: string) => {
         setResponseBytes(responseBytes);
+      }}
+      overrideStyle={{
+        bgcolor: "red"
       }}
     />
   );

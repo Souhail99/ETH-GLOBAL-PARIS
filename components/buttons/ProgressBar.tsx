@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
+import { SismoConnectComponent } from "./SismoConnectButton";
 
 export type ProgressBarProps = {
   label: string;
@@ -74,7 +75,6 @@ export const ProgressBar = ({label, percent}: ProgressBarProps) => {
           }}>
           Vote
         </Button>
-
       </Box>
 
 

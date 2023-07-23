@@ -6,6 +6,7 @@ import { VoteWrapper } from "../components/wrappers/VoteWrapper";
 import { DatesWrapper } from "../components/wrappers/DatesWrapper";
 import { VotersWrapper } from "../components/wrappers/VotersWrapper";
 import TitleImage from "../img/Park.png"
+import { SismoWrapper } from "../components/wrappers/SismoWrapper";
 
 
 export default function Home(){
@@ -41,10 +42,11 @@ export default function Home(){
   return (
     <>
       <main className={styles.main}>
-        <Box margin="auto" width="90vw" display="grid" gridTemplateColumns="3fr 1fr" gap="24px">
+        <Box margin="auto" width="75vw" display="grid" gridTemplateColumns="3fr 1fr" gap="24px">
           <Box display="flex" flexDirection="column" gap="24px">
             <TitleWrapper title={pollData.title} description={pollData.subtitle} imageSrc={TitleImage}/>
             <VoteWrapper voteData={pollData.voteData} timeLeft={pollData.timeLeft}/>
+            <SismoWrapper/>
             <DescriptionWrapper title={"Description"} content={pollData.description}/>
           </Box>
 
