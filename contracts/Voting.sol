@@ -46,8 +46,10 @@ contract Voting is Ownable {
     event resultProposal(uint256 proposalId, uint256[] votes);
 
     // Constructor
-    constructor() {
+    constructor(address _verifier, address _whitelist) {
         creator = msg.sender;
+        verifier = _verifier;
+        whitelist = _whitelist;
     }
 
     modifier onlyVerifier() {

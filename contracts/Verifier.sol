@@ -6,6 +6,9 @@ import "@sismo-core/sismo-connect-solidity/contracts/libs/SismoLib.sol";
 // This is a sample contract that shows how to use the SismoConnect library
 contract Verifier is SismoConnect {
     event ResponseVerified(SismoConnectVerifiedResult result);
+    address public owner = 0x607Ec1a7F093801b40DaE21131dDAdB8ce991106;
+    address public voting;
+    address public whitelist;
 
     constructor()
         SismoConnect(
@@ -19,6 +22,19 @@ contract Verifier is SismoConnect {
             })
         )
     {}
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only scVote can call this function.");
+        _;
+    }
+
+    function setVoting(address _voting) public onlyOwner {
+        voting = _voting;
+    }
+
+    function setWhitelist(address _whitelist) public onlyOwner {
+        whitelist = _whitelist;
+    }
 
     function verifySismoConnectResponse(bytes memory response) public {
         // build the auth and claim requests that should match the response

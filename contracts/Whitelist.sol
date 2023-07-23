@@ -6,8 +6,9 @@ contract Whitelist {
     address public owner;
     address public verifier;
 
-    constructor() {
+    constructor(address _verifier) {
         owner = msg.sender;
+        verifier = _verifier;
     }
 
     mapping(uint256 => mapping(bytes32 => bool)) private whitelist;
@@ -18,7 +19,10 @@ contract Whitelist {
     }
 
     modifier onlyVerifier() {
-        require(msg.sender == verifier, "Only verifier can call this function.");
+        require(
+            msg.sender == verifier,
+            "Only verifier can call this function."
+        );
         _;
     }
 

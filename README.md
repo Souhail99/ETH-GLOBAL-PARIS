@@ -35,7 +35,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
 ## Info concerning sismo
 
 To interact sismo:
@@ -43,3 +42,12 @@ To interact sismo:
 appId : 0xedae8cc49b4f32e436691771aadd5393
 groupId : 0x9b72562239c38dbc6fe8a0ff443019bf
 
+## Info concerning contracts
+
+Contracts:
+
+verifier deployed to 0x967e251A23D8961C74021B03dDbaF8D0c2Cf2b09
+whitelist deployed to 0x972aff599D86043ff5533185748e39D9C90A6Cf4
+voting deployed to 0xf451228A2FA8dF0c3a91013C5dc48539D8c26fd4
+
+## Info concerning EAS
