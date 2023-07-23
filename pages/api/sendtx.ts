@@ -24,7 +24,7 @@ export default async function handler(req: any, res: any) {
       transport: http(),
     });
 
-    //Make a transaction
+    //Make a transaction here
     try {
       const tx = await client.writeContract({
         address: "0xADF03889B7931DAE45Ef82b27b76812C8BFaFbE6",
