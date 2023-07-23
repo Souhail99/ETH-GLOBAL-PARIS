@@ -18,7 +18,7 @@ contract Whitelist {
     }
 
     modifier onlyVerifier() {
-        require(msg.sender == verifier, "Only scVote can call this function.");
+        require(msg.sender == verifier, "Only verifier can call this function.");
         _;
     }
 
