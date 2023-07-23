@@ -92,7 +92,7 @@ export default async function handler(
 
     console.log("New attestation UID:", newAttestationUID);
     
-    res.status(200).json(`https://easscan.org/attestation/view/${newAttestationUID}`);
+    res.redirect(`https://easscan.org/attestation/view/${newAttestationUID}`);
 
   } else if (req.method === 'GET') {
 
