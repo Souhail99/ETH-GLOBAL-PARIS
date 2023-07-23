@@ -2,10 +2,9 @@ import styles from "../styles/Home.module.css";
 import { DescriptionWrapper } from "../components/wrappers/DescriptionWrapper";
 import { TitleWrapper } from "../components/wrappers/TitleWrapper";
 import { Box } from "@mui/material";
-import { VoteWrapper } from "../components/wrappers/VoteWrapper";
 import { DatesWrapper } from "../components/wrappers/DatesWrapper";
 import { VotersWrapper } from "../components/wrappers/VotersWrapper";
-import { SismoWrapper } from "../components/wrappers/SismoWrapper";
+import { FormWrapper } from "../components/wrappers/FormWrapper";
 
 export default function Home() {
   const pollData = {
@@ -22,14 +21,20 @@ export default function Home() {
       {
         label: "Emma Henderson",
         percent: 55,
+        id: "Emma Henderson",
+        selected: false
       },
       {
         label: "David Strauss",
         percent: 35,
+        id: "David Strauss",
+        selected: false
       },
       {
         label: "None",
         percent: 10,
+        id: "None",
+        selected: false
       },
     ],
     timeLeft: "2 days 3 hours 12 minutes",
@@ -50,11 +55,9 @@ export default function Home() {
               title={pollData.title}
               description={pollData.subtitle}
             />
-            <VoteWrapper
+            <FormWrapper
               voteData={pollData.voteData}
-              timeLeft={pollData.timeLeft}
-            />
-            <SismoWrapper />
+              timeLeft={pollData.timeLeft}/>
             <DescriptionWrapper
               title={"Description"}
               content={pollData.description}

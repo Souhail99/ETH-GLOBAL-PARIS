@@ -2,7 +2,12 @@ import { Box, Typography } from "@mui/material";
 import { SismoConnectComponent } from "../buttons/SismoConnectButton";
 
 
-export const SismoWrapper = () => {
+type SismoWrapperProps = {
+  idSelected: string;
+}
+
+
+export const SismoWrapper = ({idSelected}: SismoWrapperProps) => {
 
   return (
     <Box
@@ -24,7 +29,7 @@ export const SismoWrapper = () => {
       >
         Submit
       </Typography>
-      <SismoConnectComponent/>
+      <SismoConnectComponent idSelected={idSelected}/>
     </Box>
   )
 }

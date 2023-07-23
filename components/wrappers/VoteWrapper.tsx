@@ -1,13 +1,18 @@
 import { Box, Typography } from "@mui/material";
 import { ProgressBar, ProgressBarProps } from "../buttons/ProgressBar";
 
-type VoteWrapperProps = {
+export type VoteWrapperProps = {
   voteData: ProgressBarProps[];
   timeLeft: string;
+  idSelected: string;
+  setIdSelected: (id: string) => void;
 }
 
+export const VoteWrapper = ({timeLeft, voteData, idSelected, setIdSelected}: VoteWrapperProps) => {
 
-export const VoteWrapper = ({timeLeft, voteData}: VoteWrapperProps) => {
+  const handleClick = (id: string) => {
+    setIdSelected && setIdSelected(id);
+  }
 
   return (
     <Box
@@ -47,8 +52,17 @@ export const VoteWrapper = ({timeLeft, voteData}: VoteWrapperProps) => {
       <Box mt="9px">
         {
           voteData.map((data, index) => (
-            <Box key={index} mt="12px">
-              <ProgressBar label={data.label} percent={data.percent}/>
+            <Box
+              key={index}
+              mt="12px"
+              onClick={() => handleClick(data.id)}
+            >
+              <ProgressBar
+                label={data.label}
+                percent={data.percent}
+                id={data.id}
+                selected={idSelected === data.id}
+              />
             </Box>
           ))
         }

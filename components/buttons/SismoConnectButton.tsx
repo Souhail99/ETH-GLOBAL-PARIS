@@ -6,7 +6,12 @@ import {
 } from "@sismo-core/sismo-connect-react";
 import { encodeAbiParameters } from "viem";
 
-export const SismoConnectComponent = () => {
+type SismoConnectComponentProps = {
+  idSelected: string;
+}
+
+
+export const SismoConnectComponent = ({idSelected}: SismoConnectComponentProps) => {
   const [responseBytes, setResponseBytes] = useState<string | null>(null);
   const [response, setResponse] = useState<SismoConnectResponse | null>(null);
   const [finished, setFinished] = useState<boolean>(false);
@@ -58,6 +63,7 @@ export const SismoConnectComponent = () => {
         message: encodeAbiParameters(
           [{ type: "string", name: "blabla" }],
           ["0x00" as `0x${string}`]
+          //[idSelected as `0x${string}`]
         ),
       }}
       onResponse={(response: SismoConnectResponse) => {
