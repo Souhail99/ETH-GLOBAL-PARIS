@@ -5,7 +5,6 @@ import abi from "../../artifacts/contracts/Verifier.sol/Verifier.json";
 require("dotenv").config();
 
 const { PRIVATE_KEY } = process.env;
-// create transaction
 export default async function handler(req: any, res: any) {
   if (!PRIVATE_KEY || PRIVATE_KEY.trim() === "") {
     res
@@ -24,18 +23,19 @@ export default async function handler(req: any, res: any) {
       transport: http(),
     });
 
-    //Make a transaction here
     try {
       const tx = await client.writeContract({
         address: "0xADF03889B7931DAE45Ef82b27b76812C8BFaFbE6",
         abi: abi.abi,
         functionName: "verifySismoConnectResponse",
-        args: [req.body],
+        args: [req.body.Bytes],
         gas: 6_000_000n,
       });
-      res.status(200).json({ all: tx });
+
+      console.log("tx", tx);
+
+      res.status(200).json({ sismoId: req.body.sismoId });
     } catch (error) {
-      console.error("Error sending transaction:", error);
       res.status(500).json({ error: "Error sending transaction." });
     }
   } else {

@@ -1,54 +1,42 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 const { ethers } = require("ethers");
+require("dotenv").config();
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const { PRIVATE_KEY } = process.env;
+
+export default async function handler(req: any, res: any) {
   if (req.method === "POST") {
-    const body = req.body;
-    var response = JSON.stringify(body);
-    var json = JSON.parse(response);
-    // Retrieve the Schema Address
-    const EASContractAddress = "0xC2679fBD37d54388Ce493F1DB75320D236e1815e"; // Sepolia v0.26
+    const EASContractAddress = "0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0";
     const eas = new EAS(EASContractAddress);
-    const provider = ethers.providers.getDefaultProvider("sepolia");
-    eas.connect(provider);
-    const privateKey = "YOUR_PRIVATE_KEY";
-    // const provider = ethers.getDefaultProvider('sepolia');
-    // const signer = new ethers.Wallet(privateKey, provider);
-    // Partie 3: Create an Attestation
+    const provider = new ethers.getDefaultProvider("sepolia");
+    console.log("provider", provider);
+    const signer = new ethers.Wallet(PRIVATE_KEY, provider);
+    eas.connect(signer);
     const schemaEncoder = new SchemaEncoder(
-      "uint256 proposalID, string IDuser"
+      "uint256 proposalID, string IDSismo"
     );
     const encodedData = schemaEncoder.encodeData([
-      { name: "proposalID", value: json["proposalId"], type: "uint256" },
-      { name: "IDuser", value: json["sismoId"], type: "string" },
+      { name: "proposalID", value: req.body.proposalId, type: "uint256" },
+      { name: "IDSismo", value: req.body.sismoId, type: "string" },
     ]);
-
     const schemaUID =
-      "0xb16fa048b0d597f5a821747eba64efa4762ee5143e9a80600d0005386edfc995";
-    const signer = new ethers.Wallet(privateKey, provider);
+      "0x45b9082da8e3ac5be774e9738e91a4dc82de5ec7caaef0713b304b314f97a553";
     eas.connect(signer);
-    //const signer = ethers.getDefaultSigner(); // Replace with the signer you want to use
     const tx = await eas.attest({
       schema: schemaUID,
       data: {
-        recipient: json["Vault"], // Replace with the recipient address
+        recipient: req.body.sismoId,
         expirationTime: 0,
         revocable: true,
         data: encodedData,
       },
     });
-
     const newAttestationUID = await tx.wait();
-
     console.log("New attestation UID:", newAttestationUID);
 
-    res.redirect(`https://easscan.org/attestation/view/${newAttestationUID}`);
+    res.status(200).json(newAttestationUID);
   } else if (req.method === "GET") {
-    res.status(200).json("A");
+    res.status(200).json("sdkeas");
   } else {
     res.status(200).json(req.body);
   }

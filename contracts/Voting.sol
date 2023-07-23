@@ -8,7 +8,7 @@ contract Voting is Ownable {
     using EnumerableSet for EnumerableSet.AddressSet;
 
     // State variables
-    address public creator; // For security
+    address public creator;
     address public verifier;
     address public whitelist;
     uint256 public proposalId;

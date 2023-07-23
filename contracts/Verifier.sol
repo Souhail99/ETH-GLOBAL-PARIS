@@ -51,6 +51,7 @@ contract Verifier is SismoConnect {
             auths: auths,
             claims: claims,
             signature: buildSignature({message: abi.encode("0x00")})
+            // We use 0x00 as vote, we want to modify this value with the vote of the user
         });
 
         emit ResponseVerified(result);

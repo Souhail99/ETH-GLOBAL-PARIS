@@ -46,7 +46,7 @@ groupId : 0x9b72562239c38dbc6fe8a0ff443019bf
 
 Contracts:
 
-verifier deployed to 0x967e251A23D8961C74021B03dDbaF8D0c2Cf2b09
+verifier deployed to 0xADF03889B7931DAE45Ef82b27b76812C8BFaFbE6
 whitelist deployed to 0x972aff599D86043ff5533185748e39D9C90A6Cf4
 voting deployed to 0xf451228A2FA8dF0c3a91013C5dc48539D8c26fd4
 

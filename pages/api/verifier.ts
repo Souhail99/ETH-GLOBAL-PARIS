@@ -19,7 +19,7 @@ export default async function handler(req: any, res: any) {
     //create instance sismoConnect
     const sismoConnect = SismoConnect({ config });
 
-    async function verifyResponse(sismoConnectResponse: SismoConnectResponse) {
+    async function verify(sismoConnectResponse: SismoConnectResponse) {
       // verifies the proofs contained in the sismoConnectResponse
       const result: SismoConnectVerifiedResult = await sismoConnect.verify(
         sismoConnectResponse,
@@ -34,15 +34,16 @@ export default async function handler(req: any, res: any) {
             message: encodeAbiParameters(
               [{ type: "string", name: "blabla" }],
               ["0x00" as `0x${string}`]
+              // We use 0x00 as vote, we want to modify this value with the vote of the user
             ),
           },
         }
       );
       return result;
     }
-    const result = await verifyResponse(req.body.proof);
-    const vaultId = result.getUserId(AuthType.VAULT);
-    res.status(200).json({ all: result, vaultId: vaultId });
+    const verifyResponse = await verify(req.body.proof);
+    const vaultId = verifyResponse.getUserId(AuthType.VAULT);
+    res.status(200).json({ verifyResponse: verifyResponse, vaultId: vaultId });
   } else {
     res.status(200).json({ name: "I need POST request" });
   }
