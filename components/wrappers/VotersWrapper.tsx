@@ -1,14 +1,8 @@
 import { Box, Typography } from "@mui/material";
 
-
-export const VotersWrapper = (props: {title: string, content: string[]}) => {
+export const VotersWrapper = () => {
   return (
-    <Box
-      bgcolor="white"
-      border="24px"
-      padding="24px"
-      borderRadius="24px"
-    >
+    <Box bgcolor="white" border="24px" padding="24px" borderRadius="24px">
       <Typography>Voters</Typography>
 
       <Box mt="20px">
@@ -18,7 +12,7 @@ export const VotersWrapper = (props: {title: string, content: string[]}) => {
               fontSize: "17px",
               fontStyle: "normal",
               fontWeight: "590",
-              lineHeight: "22px"
+              lineHeight: "22px",
             }}
           >
             Number of voters
@@ -32,7 +26,7 @@ export const VotersWrapper = (props: {title: string, content: string[]}) => {
               fontSize: "17px",
               fontStyle: "normal",
               fontWeight: "590",
-              lineHeight: "22px"
+              lineHeight: "22px",
             }}
           >
             Already voted
@@ -42,4 +36,4 @@ export const VotersWrapper = (props: {title: string, content: string[]}) => {
       </Box>
     </Box>
   );
-}
+};
