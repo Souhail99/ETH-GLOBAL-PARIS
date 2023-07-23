@@ -51,3 +51,17 @@ whitelist deployed to 0x972aff599D86043ff5533185748e39D9C90A6Cf4
 voting deployed to 0xf451228A2FA8dF0c3a91013C5dc48539D8c26fd4
 
 ## Info concerning EAS
+
+
+## Contributors
+
+<table>
+  <tbody>
+    <tr>
+        <td align="center" valign="top" width="14.28%"><a href="https://github.com/Souhail99"><img src="https://avatars.githubusercontent.com/u/55179344?v=4" width="80px;" alt="Souhail AIT LAHCEN"/><br /><sub><b>Souhail AIT LAHCEN</b></sub></a></td>
+        <td align="center" valign="top" width="14.28%"><a href="https://github.com/lilyanB"><img src="https://avatars.githubusercontent.com/u/91454320?v=4" width="80px;" alt="Lilyan B"/><br /><sub><b>Lilyan Bastien</b></sub></a></td>
+        <td align="center" valign="top" width="14.28%"><a href="https://github.com/CanberraMenthonnex"><img src="https://avatars.githubusercontent.com/u/70761366?v=4" width="80px;" alt="Canberra"/><br /><sub><b>Canberra Menthonnex</b></sub></a></td>
+        <td align="center" valign="top" width="14.28%"><a href="https://github.com/Alexterieur0"><img src="https://avatars.githubusercontent.com/u/122485525?v=4" width="80px;" alt="Alexterieur0"/><br /><sub><b>Alexis Toppé</b></sub></a></td>
+    </tr>
+    </tbody>
+</table>
