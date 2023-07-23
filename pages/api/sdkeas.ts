@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 const { ethers } = require("ethers");
@@ -47,7 +46,7 @@ export default async function handler(
 
     console.log("New attestation UID:", newAttestationUID);
 
-    res.status(200).json("Schema created");
+    res.redirect(`https://easscan.org/attestation/view/${newAttestationUID}`);
   } else if (req.method === "GET") {
     res.status(200).json("A");
   } else {

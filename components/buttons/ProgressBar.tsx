@@ -4,45 +4,43 @@ import Button from "@mui/material/Button";
 export type ProgressBarProps = {
   label: string;
   percent: number;
-  params?: string;
-};
+  id: string;
+  selected: boolean;
+}
 
-export const ProgressBar = ({ label, percent }: ProgressBarProps) => {
+export const ProgressBar = ({label, percent, selected}: ProgressBarProps) => {
+
   return (
-    <Box
-      sx={{
-        height: "78px",
+    <Box sx={{
+      height: "78px",
+      width: "100%",
+      bgcolor: "transparent",
+      border: "3px solid",
+      borderColor: selected ? "#5755D7" : "transparent",
+      position: "relative",
+      borderRadius: "24px",
+      overflow: "hidden",
+      zIndex: 1
+    }}
+    >
+      <Box sx={{
+        height: "100%",
+        width: `${percent}%`,
+        bgcolor: "#EEEEFB",
+        position: "absolute",
+        zIndex: 2
+      }}/>
+      <Box sx={{
+        height: "100%",
         width: "100%",
         bgcolor: "transparent",
-        border: "1px solid #C7C7CC",
-        position: "relative",
-        borderRadius: "24px",
-        overflow: "hidden",
-        zIndex: 1,
-      }}
-    >
-      <Box
-        sx={{
-          height: "100%",
-          width: `${percent}%`,
-          bgcolor: "#EEEEFB",
-          position: "absolute",
-          zIndex: 2,
-        }}
-      />
-      <Box
-        sx={{
-          height: "100%",
-          width: "100%",
-          bgcolor: "transparent",
-          position: "absolute",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "0 20px",
-          zIndex: 3,
-        }}
-      >
+        position: "absolute",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "0 20px",
+        zIndex: 3
+      }}>
         <Box display="flex" flexDirection="column">
           <Typography
             sx={{
@@ -73,13 +71,14 @@ export const ProgressBar = ({ label, percent }: ProgressBarProps) => {
             bgcolor: "#5755D7",
             borderRadius: "20px",
             "&:hover": {
-              bgcolor: "rgba(87,85,215,0.93)",
-            },
-          }}
-        >
-          Vote
+              bgcolor: "rgba(87,85,215,0.93)"
+            }
+          }}>
+          Select
         </Button>
       </Box>
+
+
     </Box>
   );
 };

@@ -5,7 +5,7 @@ import abi from "../../artifacts/contracts/Verifier.sol/Verifier.json";
 require("dotenv").config();
 
 const { PRIVATE_KEY } = process.env;
-
+// create transaction
 export default async function handler(req: any, res: any) {
   if (!PRIVATE_KEY || PRIVATE_KEY.trim() === "") {
     res
@@ -17,12 +17,14 @@ export default async function handler(req: any, res: any) {
   if (req.method === "POST") {
     const account = privateKeyToAccount(`0x${PRIVATE_KEY}`);
 
+    // Instance wallet
     const client = createWalletClient({
       account,
       chain: sepolia,
       transport: http(),
     });
 
+    //Make a transaction here
     try {
       const tx = await client.writeContract({
         address: "0xADF03889B7931DAE45Ef82b27b76812C8BFaFbE6",
