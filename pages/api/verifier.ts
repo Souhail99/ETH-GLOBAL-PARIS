@@ -16,6 +16,7 @@ export default async function handler(req: any, res: any) {
       appId: appId,
     };
 
+    //create instance sismoConnect
     const sismoConnect = SismoConnect({ config });
 
     async function verifyResponse(sismoConnectResponse: SismoConnectResponse) {
